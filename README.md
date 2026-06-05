@@ -1,6 +1,25 @@
-# cypress-project-ai
+# cypress-ia-project
 
-Projeto de automação de testes E2E para o sistema **Hub de Leitura**, uma biblioteca digital educacional para prática de QA. Os testes são escritos com **Cypress** e cobrem os principais fluxos da aplicação, como autenticação e cadastro de usuários.
+Projeto de estudos práticos em **IA aplicada a QA**, com foco em automação de testes E2E utilizando **Cypress**, apoio de IA generativa, GitHub Copilot e documentação de contexto para testes.
+
+Este repositório utiliza arquivos-base disponibilizados em aula pelo professor **Fábio Araújo** como ponto de partida. A proposta é manter o projeto como material de acompanhamento do curso e, ao longo das aulas, evoluir com minhas próprias anotações, testes, ajustes e melhorias.
+
+---
+
+## 📚 Origem e objetivo do repositório
+
+Este projeto foi iniciado a partir de materiais disponibilizados em aula no curso de **IA aplicada a QA**.
+
+O objetivo deste repositório é:
+
+- Acompanhar as aulas práticas do curso;
+- Executar e entender testes automatizados com Cypress;
+- Praticar o uso de IA generativa como apoio ao trabalho de QA;
+- Trabalhar com prompts, documentação de contexto e automação de testes;
+- Registrar minha evolução durante os estudos;
+- Futuramente adaptar o projeto com melhorias próprias e boas práticas voltadas ao mercado de trabalho.
+
+> Este repositório não tem a intenção de ocultar a origem do material-base. Ele é um ambiente de estudo pessoal, mantido para prática, organização e evolução profissional em QA.
 
 ---
 
@@ -27,25 +46,25 @@ Projeto de automação de testes E2E para o sistema **Hub de Leitura**, uma bibl
 
 ## 📦 Instalação
 
-Clone o repositório e instale as dependências:
+Clone este repositório e instale as dependências:
 
 ```bash
-git clone https://github.com/fabioaraujoqa/cypress-project-ai.git
-cd cypress-project-ai
+git clone https://github.com/Guss182/cypress-ia-project.git
+cd cypress-ia-project
 npm install
 ```
 
 ### Dependências
 
-| Pacote    | Versão   | Descrição                        |
-|-----------|----------|----------------------------------|
-| `cypress` | `^15.15` | Framework de testes E2E          |
+| Pacote    | Versão   | Descrição               |
+|-----------|----------|-------------------------|
+| `cypress` | `^15.15` | Framework de testes E2E |
 
 ---
 
 ## 🚀 Como executar
 
-### Interface gráfica (recomendado)
+### Interface gráfica
 
 Abre o Cypress Test Runner para execução interativa:
 
@@ -53,7 +72,7 @@ Abre o Cypress Test Runner para execução interativa:
 npx cypress open
 ```
 
-### Modo headless (CI/CD)
+### Modo headless
 
 Executa todos os testes no terminal, sem abrir o navegador:
 
@@ -71,8 +90,13 @@ npx cypress run --spec "cypress/e2e/cadastro.cy.js"
 
 ## 🗂️ Estrutura do projeto
 
-```
-cypress-project-ai/
+```txt
+cypress-ia-project/
+├── .github/
+│   └── skills/
+│       └── arquitetura/
+│           └── SKILL.md
+├── .playwright-mcp/
 ├── cypress/
 │   ├── e2e/
 │   │   ├── login.cy.js       # Testes de autenticação
@@ -84,9 +108,12 @@ cypress-project-ai/
 │       └── e2e.js            # Configurações globais de suporte
 ├── docs/
 │   ├── hub-de-leitura.md     # Documentação da aplicação
-│   └── rag-hub-de-leitura.md # Base de conhecimento para QA
+│   └── rag-hub-de-leitura.md # Base de conhecimento para QA/IA
+├── .gitignore
 ├── cypress.config.js         # Configuração do Cypress
-└── package.json
+├── package-lock.json
+├── package.json
+└── README.md
 ```
 
 ---
@@ -95,29 +122,65 @@ cypress-project-ai/
 
 ### Login (`login.cy.js`)
 
-| ID            | Tipo     | Descrição                                          |
-|---------------|----------|----------------------------------------------------|
-| CT-LOGIN-001  | Positivo | Login com credenciais válidas de administrador     |
+| ID           | Tipo     | Descrição                                      |
+|--------------|----------|------------------------------------------------|
+| CT-LOGIN-001 | Positivo | Login com credenciais válidas de administrador |
 
 ### Cadastro (`cadastro.cy.js`)
 
-| ID          | Tipo     | Descrição                                                  |
-|-------------|----------|------------------------------------------------------------|
-| CT-CAD-001  | Positivo | Cadastro com dados válidos — redireciona para o dashboard  |
-| CT-CAD-002  | Negativo | Cadastro com e-mail já existente — exibe mensagem de erro  |
-| CT-CAD-003  | Negativo | Campos obrigatórios vazios — impede envio do formulário    |
+| ID         | Tipo     | Descrição                                                 |
+|------------|----------|-----------------------------------------------------------|
+| CT-CAD-001 | Positivo | Cadastro com dados válidos — redireciona para o dashboard |
+| CT-CAD-002 | Negativo | Cadastro com e-mail já existente — exibe mensagem de erro |
+| CT-CAD-003 | Negativo | Campos obrigatórios vazios — impede envio do formulário   |
 
 ---
 
 ## 🔑 Credenciais de teste
 
-| Perfil        | E-mail                   | Senha      |
-|---------------|--------------------------|------------|
-| Administrador | admin@biblioteca.com     | admin123   |
-| Usuário comum | usuario@teste.com        | user123    |
+| Perfil        | E-mail               | Senha    |
+|---------------|----------------------|----------|
+| Administrador | admin@biblioteca.com | admin123 |
+| Usuário comum | usuario@teste.com    | user123  |
 
 ---
 
-## 📄 Licença
+## 🤖 Uso de IA no projeto
 
-Uso educacional e acadêmico. Desenvolvido por [Fábio Araújo](https://github.com/fabioaraujoqa).
+Este projeto também é utilizado para praticar o uso de IA no contexto de Quality Assurance.
+
+Durante o curso, a IA pode ser usada para apoiar atividades como:
+
+- Análise de histórias de usuário;
+- Criação de critérios de aceitação;
+- Mapeamento de riscos;
+- Geração de cenários em Gherkin;
+- Sugestão de testes automatizados;
+- Revisão de código Cypress;
+- Organização de documentação de apoio para testes.
+
+A IA deve ser usada como apoio ao QA, não como substituta da análise humana. Todo código ou artefato gerado com auxílio de IA deve ser revisado antes de ser utilizado.
+
+---
+
+## 📌 Evolução do projeto
+
+Este repositório será mantido durante o curso e poderá receber melhorias como:
+
+- Novos testes automatizados;
+- Anotações de aula;
+- Melhorias na documentação;
+- Ajustes nos seletores utilizados nos testes;
+- Uso de variáveis de ambiente;
+- Refatoração de comandos customizados;
+- Organização para portfólio profissional após o término das aulas.
+
+---
+
+## 📄 Licença e créditos
+
+Uso educacional e acadêmico.
+
+Projeto baseado em materiais disponibilizados em aula pelo professor [Fábio Araújo](https://github.com/fabioaraujoqa), com finalidade de estudo, prática e evolução em QA, Cypress e IA aplicada a testes de software.
+
+Repositório mantido por **Gustavo Alves Moreno** como parte dos estudos em Quality Assurance.
