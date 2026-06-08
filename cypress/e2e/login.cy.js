@@ -1,13 +1,13 @@
 describe('template spec', () => {
   it('CT-LOGIN-001 - Login com credenciais válidas de administrador', () => {
     // 1. Acessar a página de login
-    cy.visit('http://localhost:3000/login')
+    cy.visit('/login')
 
     // 2. Inserir e-mail
-    cy.get('input[name="email"], input[type="email"]').type('admin@biblioteca.com')
+    cy.get('input[name="email"], input[type="email"]').type(Cypress.env('adminEmail'))
 
     // 3. Inserir senha
-    cy.get('input[name="password"], input[type="password"]').type('admin123')
+    cy.get('input[name="password"], input[type="password"]').type(Cypress.env('adminPassword'))
 
 
     // 4. Clicar em "Entrar"

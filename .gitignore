@@ -53,6 +53,16 @@ web_modules/
 # Optional eslint cache
 .eslintcache
 
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Cypress artifacts
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+
 # Optional stylelint cache
 .stylelintcache
 

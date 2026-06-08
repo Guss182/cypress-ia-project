@@ -4,7 +4,7 @@ describe('Cadastro de Usuário - Hub de Leitura', () => {
   const emailAleatorio = `usuario_${Date.now()}@teste.com`
 
   beforeEach(() => {
-    cy.visit('http://localhost:3000/register.html')
+    cy.visit('/register.html')
   })
 
   it('CT-CAD-001 - Cadastro com dados válidos deve criar conta com sucesso', () => {
@@ -35,7 +35,7 @@ describe('Cadastro de Usuário - Hub de Leitura', () => {
     cy.get('input[placeholder="Seu nome completo"]').type('Admin Duplicado')
 
     // 2. Usar e-mail já cadastrado no sistema
-    cy.get('input[placeholder="seu@email.com"]').type('admin@biblioteca.com')
+    cy.get('input[placeholder="seu@email.com"]').type(Cypress.env('adminEmail'))
 
     // 3. Preencher senha
     cy.get('input[placeholder="Crie uma senha segura"]').type('Senha@123')
