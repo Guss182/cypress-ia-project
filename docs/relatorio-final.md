@@ -10,6 +10,8 @@ Este projeto foi desenvolvido como parte de um portfólio de Quality Assurance c
 
 O projeto utiliza Cypress JS e contempla testes de login, cadastro de usuário e adição de livros à cesta. Além dos testes, o repositório possui documentação de contexto, evidências de execução e registros de prompts utilizados durante o processo de melhoria.
 
+Após a primeira versão do relatório, também foi executado um fluxo E2E real com Playwright MCP como validação complementar pela interface. O Cypress JS permanece como a automação principal do projeto.
+
 Os riscos identificados neste relatório estão mapeados como pontos de atenção e oportunidades de evolução. Eles não devem ser considerados corrigidos enquanto não houver alteração, validação e nova evidência correspondente.
 
 ## 3. Contexto do Projeto
@@ -40,8 +42,12 @@ Foram considerados os seguintes artefatos do projeto:
 - `.env.example`
 - `docs/hub-de-leitura.md`
 - `docs/rag-hub-de-leitura.md`
+- `docs/qa-agent.md`
+- `.vscode/mcp.json`
 - `prompts/refatoracao-env-cypress.md`
 - `evidencias/aula-2-cypress.md`
+- `evidencias/aula-4-mcp.md`
+- `evidencias/screenshots/`
 - `evidencias/revisao-skill-arquitetura.md`
 - `cypress/e2e/login.cy.js`
 - `cypress/e2e/cadastro.cy.js`
@@ -77,9 +83,12 @@ O projeto apresenta boas práticas importantes para um portfólio de QA:
 O projeto possui evidências documentais em Markdown:
 
 - `evidencias/aula-2-cypress.md`: registra objetivo, arquivos alterados, testes executados, resultado informado e observações sobre o fluxo de cesta.
+- `evidencias/aula-4-mcp.md`: registra o fluxo E2E real executado com Playwright MCP, passando por login comum, catálogo, busca por `A Arte da Guerra`, cesta, checkout e confirmação `Reservas Confirmadas!`.
 - `evidencias/revisao-skill-arquitetura.md`: registra análise dos testes com base na skill de arquitetura, incluindo pontos corretos, riscos, melhorias e priorização.
 
-Essas evidências apoiam a narrativa do portfólio, pois mostram o processo de evolução do projeto, a análise crítica dos testes e a preocupação com boas práticas de automação.
+As screenshots do fluxo MCP ficam organizadas em `evidencias/screenshots/`.
+
+Essas evidências apoiam a narrativa do portfólio, pois mostram o processo de evolução do projeto, a análise crítica dos testes, a preocupação com boas práticas de automação e uma validação visual complementar via MCP.
 
 ## 9. Uso de IA no Processo
 
@@ -90,6 +99,8 @@ A IA foi utilizada como apoio ao trabalho de QA, principalmente para:
 - Revisar testes com base em uma skill de arquitetura Cypress.
 - Organizar riscos, melhorias e prioridades.
 - Apoiar a criação de documentação técnica para portfólio.
+- Documentar o QA Agent em `docs/qa-agent.md`.
+- Executar validação E2E real com Playwright MCP configurado em `.vscode/mcp.json`.
 
 O uso de IA neste projeto teve caráter assistivo. As decisões, validações e conclusões devem permanecer sob responsabilidade humana, especialmente em relação à qualidade dos testes, cobertura e confiabilidade das evidências.
 
@@ -105,6 +116,7 @@ Os principais riscos e limitações mapeados são:
 - O teste de cesta valida o `localStorage`, que é um detalhe de implementação.
 - A seleção de livros na cesta usa posição dos botões, como `.first()` e `.eq(1)`, o que pode ser instável se a lista mudar.
 - O `README.md` pode precisar de atualização para refletir todos os testes e evidências atuais.
+- Durante o fluxo MCP, links rápidos para catálogo não navegaram; o catálogo foi acessado pela URL no navegador para continuar a validação.
 
 Esses itens estão identificados como riscos. Não há indicação neste relatório de que tenham sido corrigidos.
 
@@ -125,6 +137,8 @@ As próximas melhorias recomendadas são:
 ## 12. Conclusão
 
 O projeto demonstra uma base consistente para portfólio de QA com IA, reunindo automação E2E com Cypress JS, documentação de contexto, evidências e reflexão técnica sobre riscos e melhorias.
+
+Além da automação principal em Cypress JS, o projeto passou a registrar uma validação complementar com Playwright MCP para o fluxo login comum → catálogo → `A Arte da Guerra` → cesta → checkout → `Reservas Confirmadas!`.
 
 Os testes atuais cobrem fluxos relevantes da aplicação Hub de Leitura e mostram evolução no uso de boas práticas, como variáveis de ambiente e organização de evidências. Ao mesmo tempo, ainda existem oportunidades de melhoria relacionadas à estabilidade dos seletores, isolamento dos testes, controle de massa de dados e fortalecimento das validações.
 

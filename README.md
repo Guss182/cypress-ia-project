@@ -184,3 +184,18 @@ Uso educacional e acadêmico.
 Projeto baseado em materiais disponibilizados em aula pelo professor [Fábio Araújo](https://github.com/fabioaraujoqa), com finalidade de estudo, prática e evolução em QA, Cypress e IA aplicada a testes de software.
 
 Repositório mantido por **Gustavo Alves Moreno** como parte dos estudos em Quality Assurance.
+
+---
+
+## Entrega final: QA Agent e Playwright MCP
+
+Esta entrega documenta o uso do QA Agent no projeto final do Hub de Leitura, com apoio do Playwright MCP para validação visual e navegação real pela interface.
+
+- QA Agent documentado em `docs/qa-agent.md`.
+- Prompt base do agente registrado em `prompts/qa-agent-system-prompt.md`.
+- MCP configurado em `.vscode/mcp.json`.
+- No VS Code, o Playwright MCP pode ser iniciado pelo botão **Start** da configuração MCP.
+- Prompt reutilizável para o fluxo E2E registrado em `prompts/mcp-fluxo-e2e.md`.
+- Fluxo E2E validado com MCP: login comum → catálogo → `A Arte da Guerra` → cesta → checkout → `Reservas Confirmadas!`.
+- Evidência da execução registrada em `evidencias/aula-4-mcp.md`.
+- Screenshots armazenadas em `evidencias/screenshots/`.
