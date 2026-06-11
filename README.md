@@ -1,8 +1,8 @@
 # cypress-ia-project
 
-Projeto de estudos práticos em **IA aplicada a QA**, com foco em automação de testes E2E utilizando **Cypress**, apoio de IA generativa, GitHub Copilot e documentação de contexto para testes.
+Projeto de estudos práticos em **IA aplicada a QA**, com foco em automação de testes E2E utilizando **Cypress**, apoio de IA generativa, GitHub Copilot, Playwright MCP e documentação de contexto para testes.
 
-Este repositório utiliza arquivos-base disponibilizados em aula pelo professor **Fábio Araújo** como ponto de partida. A proposta é manter o projeto como material de acompanhamento do curso e, ao longo das aulas, evoluir com minhas próprias anotações, testes, ajustes e melhorias.
+Este repositório utiliza arquivos-base disponibilizados em aula pelo professor **Fábio Araújo** como ponto de partida. A proposta é manter o projeto como material de acompanhamento do curso e, ao longo das aulas, evoluir com minhas próprias anotações, testes, ajustes, evidências e melhorias.
 
 ---
 
@@ -16,6 +16,8 @@ O objetivo deste repositório é:
 - Executar e entender testes automatizados com Cypress;
 - Praticar o uso de IA generativa como apoio ao trabalho de QA;
 - Trabalhar com prompts, documentação de contexto e automação de testes;
+- Configurar e utilizar o Playwright MCP como apoio à validação visual;
+- Registrar evidências dos fluxos executados;
 - Registrar minha evolução durante os estudos;
 - Futuramente adaptar o projeto com melhorias próprias e boas práticas voltadas ao mercado de trabalho.
 
@@ -41,6 +43,7 @@ O objetivo deste repositório é:
 - [Node.js](https://nodejs.org/) v18 ou superior
 - [npm](https://www.npmjs.com/) v9 ou superior
 - Hub de Leitura em execução em `http://localhost:3000`
+- VS Code, caso queira utilizar o Playwright MCP
 
 ---
 
@@ -59,6 +62,27 @@ npm install
 | Pacote    | Versão   | Descrição               |
 |-----------|----------|-------------------------|
 | `cypress` | `^15.15` | Framework de testes E2E |
+
+---
+
+## 🔐 Configuração de ambiente
+
+As credenciais usadas nos testes não devem ser versionadas no repositório.
+
+Para executar os testes localmente, crie um arquivo `.env` na raiz do projeto com base no arquivo `.env.example`.
+
+Variáveis esperadas:
+
+```env
+CYPRESS_BASE_URL=
+CYPRESS_API_URL=
+CYPRESS_ADMIN_EMAIL=
+CYPRESS_ADMIN_PASSWORD=
+CYPRESS_USER_EMAIL=
+CYPRESS_USER_PASSWORD=
+```
+
+> O arquivo `.env` deve permanecer apenas no ambiente local e não deve ser enviado para o GitHub.
 
 ---
 
@@ -86,6 +110,12 @@ npx cypress run
 npx cypress run --spec "cypress/e2e/cadastro.cy.js"
 ```
 
+Exemplo com o fluxo de cesta:
+
+```bash
+npx cypress run --spec "cypress/e2e/adicionar-livro.cy.js"
+```
+
 ---
 
 ## 🗂️ Estrutura do projeto
@@ -96,21 +126,34 @@ cypress-ia-project/
 │   └── skills/
 │       └── arquitetura/
 │           └── SKILL.md
+├── .vscode/
+│   └── mcp.json
 ├── .playwright-mcp/
 ├── cypress/
 │   ├── e2e/
-│   │   ├── login.cy.js       # Testes de autenticação
-│   │   └── cadastro.cy.js    # Testes de cadastro de usuário
+│   │   ├── adicionar-livro.cy.js # Testes de cesta/reserva de livros
+│   │   ├── cadastro.cy.js        # Testes de cadastro de usuário
+│   │   └── login.cy.js           # Testes de autenticação
 │   ├── fixtures/
-│   │   └── example.json      # Dados de apoio aos testes
+│   │   └── example.json          # Dados de apoio aos testes
 │   └── support/
-│       ├── commands.js       # Comandos customizados do Cypress
-│       └── e2e.js            # Configurações globais de suporte
+│       ├── commands.js           # Comandos customizados do Cypress
+│       └── e2e.js                # Configurações globais de suporte
 ├── docs/
-│   ├── hub-de-leitura.md     # Documentação da aplicação
-│   └── rag-hub-de-leitura.md # Base de conhecimento para QA/IA
+│   ├── hub-de-leitura.md         # Documentação da aplicação
+│   ├── qa-agent.md               # Documentação do QA Agent
+│   ├── rag-hub-de-leitura.md     # Base de conhecimento para QA/IA
+│   └── relatorio-final.md        # Relatório final da entrega
+├── evidencias/
+│   ├── aula-2-cypress.md
+│   ├── aula-4-mcp.md
+│   └── screenshots/
+├── prompts/
+│   ├── mcp-fluxo-e2e.md
+│   └── qa-agent-system-prompt.md
+├── .env.example
 ├── .gitignore
-├── cypress.config.js         # Configuração do Cypress
+├── cypress.config.js             # Configuração do Cypress
 ├── package-lock.json
 ├── package.json
 └── README.md
@@ -134,14 +177,32 @@ cypress-ia-project/
 | CT-CAD-002 | Negativo | Cadastro com e-mail já existente — exibe mensagem de erro |
 | CT-CAD-003 | Negativo | Campos obrigatórios vazios — impede envio do formulário   |
 
+### Cesta (`adicionar-livro.cy.js`)
+
+| ID           | Tipo      | Descrição                                       |
+|--------------|-----------|-------------------------------------------------|
+| CT-CESTA-001 | Positivo  | Usuário logado adiciona 1 livro à cesta          |
+| CT-CESTA-002 | Positivo  | Usuário logado adiciona 2 livros à cesta         |
+| CT-CESTA-003 | Funcional | Usuário sem login adiciona 1 livro à cesta local |
+
 ---
 
 ## 🔑 Credenciais de teste
 
-| Perfil        | E-mail               | Senha    |
-|---------------|----------------------|----------|
-| Administrador | admin@biblioteca.com | admin123 |
-| Usuário comum | usuario@teste.com    | user123  |
+As credenciais usadas nos testes devem ser configuradas localmente no arquivo `.env`, com base no arquivo `.env.example`.
+
+Variáveis esperadas:
+
+| Variável                  | Descrição                         |
+|---------------------------|-----------------------------------|
+| `CYPRESS_BASE_URL`        | URL local da aplicação            |
+| `CYPRESS_API_URL`         | URL base da API                   |
+| `CYPRESS_ADMIN_EMAIL`     | E-mail do perfil administrador    |
+| `CYPRESS_ADMIN_PASSWORD`  | Senha do perfil administrador     |
+| `CYPRESS_USER_EMAIL`      | E-mail do usuário comum           |
+| `CYPRESS_USER_PASSWORD`   | Senha do usuário comum            |
+
+> O arquivo `.env` não deve ser versionado. Não inclua senhas reais no repositório, logs, prints ou evidências.
 
 ---
 
@@ -157,7 +218,8 @@ Durante o curso, a IA pode ser usada para apoiar atividades como:
 - Geração de cenários em Gherkin;
 - Sugestão de testes automatizados;
 - Revisão de código Cypress;
-- Organização de documentação de apoio para testes.
+- Organização de documentação de apoio para testes;
+- Apoio à validação visual com Playwright MCP.
 
 A IA deve ser usada como apoio ao QA, não como substituta da análise humana. Todo código ou artefato gerado com auxílio de IA deve ser revisado antes de ser utilizado.
 
@@ -173,6 +235,9 @@ Este repositório será mantido durante o curso e poderá receber melhorias como
 - Ajustes nos seletores utilizados nos testes;
 - Uso de variáveis de ambiente;
 - Refatoração de comandos customizados;
+- Organização por domínio dentro da pasta `cypress/e2e`;
+- Geração automatizada de relatórios;
+- Ampliação das evidências de execução;
 - Organização para portfólio profissional após o término das aulas.
 
 ---
