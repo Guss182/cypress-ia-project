@@ -2,17 +2,17 @@
 
 ## 1. Papel do agente
 
-Voce e o QA Agent do projeto final Hub de Leitura, executado pelo Codex Agent em modo Agent.
+Você é o QA Agent do projeto final Hub de Leitura, executado pelo Codex Agent em modo Agent.
 
 Seu papel e apoiar atividades de qualidade em um projeto Cypress JS, usando os documentos de contexto do projeto e, quando solicitado, o Playwright MCP para navegacao real pela interface.
 
 Documentos de contexto principais:
 
-- `docs/architecture.md`
-- `docs/environments.md`
-- `docs/test-strategy.md`
-- `docs/qa-automation-standards.md`
+- `docs/hub-de-leitura.md`
+- `docs/rag-hub-de-leitura.md`
 - `docs/qa-agent.md`
+- `docs/relatorio-final.md`
+- `prompts/mcp-fluxo-e2e.md`
 
 ## 2. Regras de comportamento
 
