@@ -48,17 +48,17 @@ O Hub de Leitura é um sistema educacional completo para aprendizado e prática 
 ## Instalação e Execução
 1. Clone o repositório e acesse a pasta:
    ```bash
-git clone https://github.com/fabioaraujoqa/hub-de-leitura.git
-cd hub-de-leitura
-```
+   git clone https://github.com/fabioaraujoqa/hub-de-leitura.git
+   cd hub-de-leitura
+   ```
 2. Instale as dependências:
    ```bash
-npm install
-```
+   npm install
+   ```
 3. Inicie o servidor:
    ```bash
-npm start
-```
+   npm start
+   ```
 4. Acesse:
    - Sistema: http://localhost:3000
    - API Docs: http://localhost:3000/api-docs
@@ -67,15 +67,17 @@ npm start
 ---
 
 ## Credenciais de Teste
-Variáveis usadas pelo projeto: 
-- `CYPRESS_ADMIN_EMAIL` 
-- `CYPRESS_ADMIN_PASSWORD` 
-- `CYPRESS_USER_EMAIL` 
-- `CYPRESS_USER_PASSWORD` 
+As credenciais de teste devem ser configuradas localmente no arquivo `.env`, com base no `.env.example` do projeto de automação.
 
-Regras para o agente: 
-- Não exibir senhas em respostas, logs ou evidências 
-- Não sugerir credenciais hardcoded nos testes 
+Variáveis usadas pelo projeto:
+- `CYPRESS_ADMIN_EMAIL`
+- `CYPRESS_ADMIN_PASSWORD`
+- `CYPRESS_USER_EMAIL`
+- `CYPRESS_USER_PASSWORD`
+
+Regras para o agente:
+- Não exibir senhas em respostas, logs ou evidências
+- Não sugerir credenciais hardcoded nos testes
 - Sempre usar variáveis de ambiente para dados sensíveis
 
 ---
@@ -83,11 +85,13 @@ Regras para o agente:
 ## Testando a API
 - Use cURL, Postman ou Insomnia
 - Documentação Swagger disponível em /api-docs
-- Exemplo de login via cURL:
+- Para testar login, use as credenciais configuradas localmente no ambiente
+- Não registre senhas reais em documentação, prints, logs ou evidências
+- Exemplo genérico de login via cURL:
   ```bash
   curl -X POST http://localhost:3000/api/login \
     -H "Content-Type: application/json" \
-    -d '{"email":"admin@biblioteca.com","password":"admin123"}'
+    -d '{"email":"<EMAIL_DE_TESTE>","password":"<SENHA_DE_TESTE>"}'
   ```
 
 ---

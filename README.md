@@ -179,11 +179,11 @@ cypress-ia-project/
 
 ### Cesta (`adicionar-livro.cy.js`)
 
-| ID           | Tipo      | Descrição                                       |
-|--------------|-----------|-------------------------------------------------|
-| CT-CESTA-001 | Positivo  | Usuário logado adiciona 1 livro à cesta          |
-| CT-CESTA-002 | Positivo  | Usuário logado adiciona 2 livros à cesta         |
-| CT-CESTA-003 | Funcional | Usuário sem login adiciona 1 livro à cesta local |
+| ID           | Tipo      | Descrição                                        |
+|--------------|-----------|--------------------------------------------------|
+| CT-CESTA-001 | Positivo  | Usuário logado adiciona 1 livro à cesta           |
+| CT-CESTA-002 | Positivo  | Usuário logado adiciona 2 livros à cesta          |
+| CT-CESTA-003 | Funcional | Usuário sem login adiciona 1 livro à cesta local  |
 
 ---
 
@@ -193,14 +193,14 @@ As credenciais usadas nos testes devem ser configuradas localmente no arquivo `.
 
 Variáveis esperadas:
 
-| Variável                  | Descrição                         |
-|---------------------------|-----------------------------------|
-| `CYPRESS_BASE_URL`        | URL local da aplicação            |
-| `CYPRESS_API_URL`         | URL base da API                   |
-| `CYPRESS_ADMIN_EMAIL`     | E-mail do perfil administrador    |
-| `CYPRESS_ADMIN_PASSWORD`  | Senha do perfil administrador     |
-| `CYPRESS_USER_EMAIL`      | E-mail do usuário comum           |
-| `CYPRESS_USER_PASSWORD`   | Senha do usuário comum            |
+| Variável                 | Descrição                      |
+|--------------------------|--------------------------------|
+| `CYPRESS_BASE_URL`       | URL local da aplicação         |
+| `CYPRESS_API_URL`        | URL base da API                |
+| `CYPRESS_ADMIN_EMAIL`    | E-mail do perfil administrador |
+| `CYPRESS_ADMIN_PASSWORD` | Senha do perfil administrador  |
+| `CYPRESS_USER_EMAIL`     | E-mail do usuário comum        |
+| `CYPRESS_USER_PASSWORD`  | Senha do usuário comum         |
 
 > O arquivo `.env` não deve ser versionado. Não inclua senhas reais no repositório, logs, prints ou evidências.
 
