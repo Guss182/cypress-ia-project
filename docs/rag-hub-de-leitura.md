@@ -67,12 +67,16 @@ npm start
 ---
 
 ## Credenciais de Teste
-- **Administrador:**
-  - Email: admin@biblioteca.com
-  - Senha: admin123
-- **Usuário comum:**
-  - Email: usuario@teste.com
-  - Senha: user123
+Variáveis usadas pelo projeto: 
+- `CYPRESS_ADMIN_EMAIL` 
+- `CYPRESS_ADMIN_PASSWORD` 
+- `CYPRESS_USER_EMAIL` 
+- `CYPRESS_USER_PASSWORD` 
+
+Regras para o agente: 
+- Não exibir senhas em respostas, logs ou evidências 
+- Não sugerir credenciais hardcoded nos testes 
+- Sempre usar variáveis de ambiente para dados sensíveis
 
 ---
 
