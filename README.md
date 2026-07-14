@@ -1,77 +1,169 @@
-# cypress-ia-project
+<div align="center">
 
-Projeto de estudos práticos em **IA aplicada a QA**, com foco em automação de testes E2E utilizando **Cypress**, apoio de IA generativa, GitHub Copilot, Playwright MCP e documentação de contexto para testes.
+# 📚 Hub de Leitura — QA Automation Lab
 
-Este repositório utiliza arquivos-base disponibilizados em aula pelo professor **Fábio Araújo** como ponto de partida. A proposta é manter o projeto como material de acompanhamento do curso e, ao longo das aulas, evoluir com minhas próprias anotações, testes, ajustes, evidências e melhorias.
+**Automação E2E com Cypress, validação com Playwright MCP e IA aplicada ao fluxo de QA.**
 
----
+![Cypress](https://img.shields.io/badge/Cypress-15.15-69D3A7?logo=cypress&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?logo=javascript&logoColor=black)
+![Playwright MCP](https://img.shields.io/badge/Playwright-MCP-2EAD33?logo=playwright&logoColor=white)
+![QA Agent](https://img.shields.io/badge/QA-Agent-6E40C9)
+![Projeto acadêmico](https://img.shields.io/badge/Projeto-Acad%C3%AAmico-0969DA)
 
-## 📚 Origem e objetivo do repositório
-
-Este projeto foi iniciado a partir de materiais disponibilizados em aula no curso de **IA aplicada a QA**.
-
-O objetivo deste repositório é:
-
-- Acompanhar as aulas práticas do curso;
-- Executar e entender testes automatizados com Cypress;
-- Praticar o uso de IA generativa como apoio ao trabalho de QA;
-- Trabalhar com prompts, documentação de contexto e automação de testes;
-- Configurar e utilizar o Playwright MCP como apoio à validação visual;
-- Registrar evidências dos fluxos executados;
-- Registrar minha evolução durante os estudos;
-- Futuramente adaptar o projeto com melhorias próprias e boas práticas voltadas ao mercado de trabalho.
-
-> Este repositório não tem a intenção de ocultar a origem do material-base. Ele é um ambiente de estudo pessoal, mantido para prática, organização e evolução profissional em QA.
+</div>
 
 ---
 
-## 🖥️ Aplicação sob teste
+## 🔎 Visão geral
 
-**Hub de Leitura** — sistema fictício de treinamento para QA, desenvolvido por [Fábio Araújo](https://github.com/fabioaraujoqa).
+Este repositório reúne um projeto acadêmico de **Quality Assurance** desenvolvido para praticar automação de testes, documentação e uso responsável de Inteligência Artificial como apoio ao trabalho de QA.
 
-- Repositório da aplicação: https://github.com/fabioaraujoqa/hub-de-leitura
-- URL local: `http://localhost:3000`
-- Documentação da API: `http://localhost:3000/api-docs`
-- Painel admin: `http://localhost:3000/admin-dashboard.html`
+A aplicação testada é o **Hub de Leitura**, um sistema educacional utilizado durante o curso de IA aplicada a QA. O projeto parte de materiais disponibilizados em aula pelo professor [Fábio Araújo](https://github.com/fabioaraujoqa) e foi ampliado com testes, ajustes, prompts, documentação e evidências organizadas durante os estudos.
 
-> A aplicação precisa estar rodando localmente antes de executar os testes.
+A automação principal foi desenvolvida com **Cypress**. Como validação complementar, também foi executado e documentado um fluxo E2E real pela interface utilizando **Playwright MCP** e um **QA Agent**.
 
----
-
-## 📋 Pré-requisitos
-
-- [Node.js](https://nodejs.org/) v18 ou superior
-- [npm](https://www.npmjs.com/) v9 ou superior
-- Hub de Leitura em execução em `http://localhost:3000`
-- VS Code, caso queira utilizar o Playwright MCP
+> A IA foi utilizada como ferramenta de apoio para análise, documentação e validação. Os resultados e artefatos foram revisados antes de serem incorporados ao projeto.
 
 ---
 
-## 📦 Instalação
+## 🚀 Principais entregas
 
-Clone este repositório e instale as dependências:
+- **7 casos de teste automatizados com Cypress**, cobrindo login, cadastro e cesta de livros.
+- **1 fluxo E2E validado com Playwright MCP**, da autenticação até a confirmação da reserva.
+- **QA Agent documentado**, com regras para respostas claras, verificáveis e rastreáveis.
+- **Prompts reutilizáveis** para execução de fluxos e apoio às atividades de QA.
+- **Documentação de contexto e RAG** sobre a aplicação testada.
+- **Evidências e relatório final** com o escopo executado.
+- **Variáveis de ambiente** para evitar o versionamento de credenciais.
+
+---
+
+## 🧩 Pilares do projeto
+
+| Pilar | Aplicação no projeto |
+| --- | --- |
+| **Cypress** | Automação principal dos fluxos de login, cadastro e cesta |
+| **Playwright MCP** | Navegação e validação complementar de um fluxo E2E real |
+| **IA aplicada a QA** | Apoio à análise, criação de prompts, documentação e revisão |
+| **QA Agent** | Orientação do agente por regras e documentos de contexto |
+| **Evidências** | Registro dos fluxos executados, resultados e screenshots |
+
+---
+
+## 🧪 Escopo dos testes Cypress
+
+| ID | Tipo | Cenário |
+| --- | --- | --- |
+| `CT-LOGIN-001` | Positivo | Login com credenciais válidas de administrador |
+| `CT-CAD-001` | Positivo | Cadastro com dados válidos |
+| `CT-CAD-002` | Negativo | Tentativa de cadastro com e-mail já existente |
+| `CT-CAD-003` | Negativo | Tentativa de cadastro com campos obrigatórios vazios |
+| `CT-CESTA-001` | Positivo | Usuário logado adiciona um livro à cesta |
+| `CT-CESTA-002` | Positivo | Usuário logado adiciona dois livros à cesta |
+| `CT-CESTA-003` | Funcional | Usuário sem login adiciona um livro à cesta local |
+
+Os testes estão disponíveis em [`cypress/e2e`](./cypress/e2e).
+
+---
+
+## 🎭 Validação com Playwright MCP
+
+O Playwright MCP foi configurado no VS Code e utilizado pelo QA Agent para navegar pela interface e validar um fluxo E2E complementar:
+
+1. Acesso ao Hub de Leitura.
+2. Login com usuário comum.
+3. Acesso ao catálogo.
+4. Busca pelo livro **A Arte da Guerra**.
+5. Adição do livro à cesta.
+6. Checkout e finalização da reserva.
+7. Validação da mensagem **Reservas Confirmadas!**.
+
+A execução está registrada em:
+
+- [Evidência do fluxo com Playwright MCP](./evidencias/aula-4-mcp.md)
+- [Prompt reutilizável do fluxo E2E](./prompts/mcp-fluxo-e2e.md)
+- [Screenshots da execução](./evidencias/screenshots)
+
+> O Playwright MCP foi utilizado para uma validação complementar orientada por agente. Ele não representa uma segunda suíte automatizada escrita em Playwright e não substitui os testes Cypress do projeto.
+
+---
+
+## 🤖 IA e QA Agent
+
+O projeto utiliza IA generativa como apoio a atividades de qualidade, incluindo:
+
+- análise da aplicação e de seus fluxos;
+- organização da documentação de contexto;
+- criação e revisão de cenários de teste;
+- elaboração de prompts reutilizáveis;
+- apoio à revisão dos testes Cypress;
+- navegação real pela interface com Playwright MCP;
+- registro de resultados e evidências.
+
+O QA Agent recebeu regras para trabalhar apenas com informações observadas ou verificadas, informar bloqueios e evitar a criação de resultados ou evidências inexistentes.
+
+Arquivos relacionados:
+
+- [Documentação do QA Agent](./docs/qa-agent.md)
+- [Prompt-base do QA Agent](./prompts/qa-agent-system-prompt.md)
+- [Base de conhecimento RAG](./docs/rag-hub-de-leitura.md)
+- [Skill de arquitetura](./.github/skills/arquitetura/SKILL.md)
+
+---
+
+## 🛠️ Tecnologias e ferramentas
+
+| Categoria | Tecnologias e práticas |
+| --- | --- |
+| Automação | Cypress, JavaScript e Node.js |
+| Validação por agente | Playwright MCP |
+| IA aplicada a QA | QA Agent, prompts e documentação RAG |
+| Ambiente | VS Code, npm e variáveis de ambiente |
+| Documentação | Markdown, casos de teste, relatório e evidências |
+| Versionamento | Git e GitHub |
+
+---
+
+## 📁 Estrutura principal
+
+```text
+hub-leitura-qa-automation-lab/
+├── .github/skills/          # Skill de arquitetura
+├── .playwright-mcp/         # Artefatos relacionados ao MCP
+├── .vscode/mcp.json         # Configuração do Playwright MCP
+├── cypress/
+│   ├── e2e/                 # Testes automatizados
+│   ├── fixtures/            # Dados de apoio
+│   └── support/             # Comandos e configurações
+├── docs/                    # Contexto, QA Agent, RAG e relatório
+├── evidencias/              # Registros e screenshots
+├── prompts/                 # Prompts reutilizáveis
+├── .env.example             # Modelo de variáveis de ambiente
+├── cypress.config.js        # Configuração do Cypress
+└── package.json             # Dependências do projeto
+```
+
+---
+
+## ▶️ Como executar os testes Cypress
+
+### Pré-requisitos
+
+- Node.js 18 ou superior;
+- npm 9 ou superior;
+- Hub de Leitura executando localmente em `http://localhost:3000`.
+
+### Instalação
 
 ```bash
-git clone https://github.com/Guss182/cypress-ia-project.git
-cd cypress-ia-project
+git clone https://github.com/Guss182/hub-leitura-qa-automation-lab.git
+cd hub-leitura-qa-automation-lab
 npm install
 ```
 
-### Dependências
+### Configuração
 
-| Pacote    | Versão   | Descrição               |
-|-----------|----------|-------------------------|
-| `cypress` | `^15.15` | Framework de testes E2E |
-
----
-
-## 🔐 Configuração de ambiente
-
-As credenciais usadas nos testes não devem ser versionadas no repositório.
-
-Para executar os testes localmente, crie um arquivo `.env` na raiz do projeto com base no arquivo `.env.example`.
-
-Variáveis esperadas:
+Crie um arquivo `.env` na raiz com base no `.env.example`:
 
 ```env
 CYPRESS_BASE_URL=
@@ -82,185 +174,78 @@ CYPRESS_USER_EMAIL=
 CYPRESS_USER_PASSWORD=
 ```
 
-> O arquivo `.env` deve permanecer apenas no ambiente local e não deve ser enviado para o GitHub.
+> Não utilize credenciais reais e não envie o arquivo `.env` para o repositório.
 
----
+### Execução
 
-## 🚀 Como executar
-
-### Interface gráfica
-
-Abre o Cypress Test Runner para execução interativa:
+Abrir o Cypress em modo interativo:
 
 ```bash
 npx cypress open
 ```
 
-### Modo headless
-
-Executa todos os testes no terminal, sem abrir o navegador:
+Executar todos os testes em modo headless:
 
 ```bash
 npx cypress run
 ```
 
-### Executar um arquivo específico
+Executar apenas uma spec:
 
 ```bash
 npx cypress run --spec "cypress/e2e/cadastro.cy.js"
 ```
 
-Exemplo com o fluxo de cesta:
+---
 
-```bash
-npx cypress run --spec "cypress/e2e/adicionar-livro.cy.js"
-```
+## 📚 Documentação e evidências
+
+| Conteúdo | Arquivo |
+| --- | --- |
+| Contexto da aplicação | [`docs/hub-de-leitura.md`](./docs/hub-de-leitura.md) |
+| Base de conhecimento | [`docs/rag-hub-de-leitura.md`](./docs/rag-hub-de-leitura.md) |
+| QA Agent | [`docs/qa-agent.md`](./docs/qa-agent.md) |
+| Relatório final | [`docs/relatorio-final.md`](./docs/relatorio-final.md) |
+| Evidência Cypress | [`evidencias/aula-2-cypress.md`](./evidencias/aula-2-cypress.md) |
+| Evidência Playwright MCP | [`evidencias/aula-4-mcp.md`](./evidencias/aula-4-mcp.md) |
+| Prompt do fluxo E2E | [`prompts/mcp-fluxo-e2e.md`](./prompts/mcp-fluxo-e2e.md) |
+| Prompt do QA Agent | [`prompts/qa-agent-system-prompt.md`](./prompts/qa-agent-system-prompt.md) |
 
 ---
 
-## 🗂️ Estrutura do projeto
+## 🔐 Cuidados adotados
 
-```txt
-cypress-ia-project/
-├── .github/
-│   └── skills/
-│       └── arquitetura/
-│           └── SKILL.md
-├── .vscode/
-│   └── mcp.json
-├── .playwright-mcp/
-├── cypress/
-│   ├── e2e/
-│   │   ├── adicionar-livro.cy.js # Testes de cesta/reserva de livros
-│   │   ├── cadastro.cy.js        # Testes de cadastro de usuário
-│   │   └── login.cy.js           # Testes de autenticação
-│   ├── fixtures/
-│   │   └── example.json          # Dados de apoio aos testes
-│   └── support/
-│       ├── commands.js           # Comandos customizados do Cypress
-│       └── e2e.js                # Configurações globais de suporte
-├── docs/
-│   ├── hub-de-leitura.md         # Documentação da aplicação
-│   ├── qa-agent.md               # Documentação do QA Agent
-│   ├── rag-hub-de-leitura.md     # Base de conhecimento para QA/IA
-│   └── relatorio-final.md        # Relatório final da entrega
-├── evidencias/
-│   ├── aula-2-cypress.md
-│   ├── aula-4-mcp.md
-│   └── screenshots/
-├── prompts/
-│   ├── mcp-fluxo-e2e.md
-│   └── qa-agent-system-prompt.md
-├── .env.example
-├── .gitignore
-├── cypress.config.js             # Configuração do Cypress
-├── package-lock.json
-├── package.json
-└── README.md
-```
+- Credenciais mantidas fora do versionamento.
+- Arquivo `.env.example` sem dados sensíveis.
+- Evidências separadas do código dos testes.
+- Origem acadêmica e autoria da aplicação informadas de forma clara.
+- Uso de IA tratado como apoio, com revisão humana dos artefatos.
+- Diferença documentada entre a suíte Cypress e a validação via Playwright MCP.
 
 ---
 
-## 🧪 Casos de teste
+## 📈 Próximas melhorias
 
-### Login (`login.cy.js`)
-
-| ID           | Tipo     | Descrição                                      |
-|--------------|----------|------------------------------------------------|
-| CT-LOGIN-001 | Positivo | Login com credenciais válidas de administrador |
-
-### Cadastro (`cadastro.cy.js`)
-
-| ID         | Tipo     | Descrição                                                 |
-|------------|----------|-----------------------------------------------------------|
-| CT-CAD-001 | Positivo | Cadastro com dados válidos — redireciona para o dashboard |
-| CT-CAD-002 | Negativo | Cadastro com e-mail já existente — exibe mensagem de erro |
-| CT-CAD-003 | Negativo | Campos obrigatórios vazios — impede envio do formulário   |
-
-### Cesta (`adicionar-livro.cy.js`)
-
-| ID           | Tipo      | Descrição                                        |
-|--------------|-----------|--------------------------------------------------|
-| CT-CESTA-001 | Positivo  | Usuário logado adiciona 1 livro à cesta           |
-| CT-CESTA-002 | Positivo  | Usuário logado adiciona 2 livros à cesta          |
-| CT-CESTA-003 | Funcional | Usuário sem login adiciona 1 livro à cesta local  |
+- Refatorar seletores e nomes genéricos herdados dos exercícios iniciais.
+- Organizar os testes Cypress por domínio da aplicação.
+- Ampliar a cobertura de cenários negativos.
+- Adicionar relatório automatizado de execução.
+- Criar uma pipeline de integração contínua.
+- Alinhar todas as referências do QA Agent aos documentos atuais do repositório.
 
 ---
 
-## 🔑 Credenciais de teste
+## 🎓 Origem acadêmica e créditos
 
-As credenciais usadas nos testes devem ser configuradas localmente no arquivo `.env`, com base no arquivo `.env.example`.
+Projeto desenvolvido para fins educacionais durante os estudos de **IA aplicada a QA**.
 
-Variáveis esperadas:
-
-| Variável                 | Descrição                      |
-|--------------------------|--------------------------------|
-| `CYPRESS_BASE_URL`       | URL local da aplicação         |
-| `CYPRESS_API_URL`        | URL base da API                |
-| `CYPRESS_ADMIN_EMAIL`    | E-mail do perfil administrador |
-| `CYPRESS_ADMIN_PASSWORD` | Senha do perfil administrador  |
-| `CYPRESS_USER_EMAIL`     | E-mail do usuário comum        |
-| `CYPRESS_USER_PASSWORD`  | Senha do usuário comum         |
-
-> O arquivo `.env` não deve ser versionado. Não inclua senhas reais no repositório, logs, prints ou evidências.
+A aplicação Hub de Leitura e os materiais-base utilizados no início do projeto foram disponibilizados pelo professor [Fábio Araújo](https://github.com/fabioaraujoqa). Este repositório registra minhas práticas, testes, prompts, documentação, evidências e melhorias realizadas ao longo do curso.
 
 ---
 
-## 🤖 Uso de IA no projeto
+## 👤 Autor
 
-Este projeto também é utilizado para praticar o uso de IA no contexto de Quality Assurance.
+**Gustavo Alves Moreno**
 
-Durante o curso, a IA pode ser usada para apoiar atividades como:
-
-- Análise de histórias de usuário;
-- Criação de critérios de aceitação;
-- Mapeamento de riscos;
-- Geração de cenários em Gherkin;
-- Sugestão de testes automatizados;
-- Revisão de código Cypress;
-- Organização de documentação de apoio para testes;
-- Apoio à validação visual com Playwright MCP.
-
-A IA deve ser usada como apoio ao QA, não como substituta da análise humana. Todo código ou artefato gerado com auxílio de IA deve ser revisado antes de ser utilizado.
-
----
-
-## 📌 Evolução do projeto
-
-Este repositório será mantido durante o curso e poderá receber melhorias como:
-
-- Novos testes automatizados;
-- Anotações de aula;
-- Melhorias na documentação;
-- Ajustes nos seletores utilizados nos testes;
-- Uso de variáveis de ambiente;
-- Refatoração de comandos customizados;
-- Organização por domínio dentro da pasta `cypress/e2e`;
-- Geração automatizada de relatórios;
-- Ampliação das evidências de execução;
-- Organização para portfólio profissional após o término das aulas.
-
----
-
-## 📄 Licença e créditos
-
-Uso educacional e acadêmico.
-
-Projeto baseado em materiais disponibilizados em aula pelo professor [Fábio Araújo](https://github.com/fabioaraujoqa), com finalidade de estudo, prática e evolução em QA, Cypress e IA aplicada a testes de software.
-
-Repositório mantido por **Gustavo Alves Moreno** como parte dos estudos em Quality Assurance.
-
----
-
-## Entrega final: QA Agent e Playwright MCP
-
-Esta entrega documenta o uso do QA Agent no projeto final do Hub de Leitura, com apoio do Playwright MCP para validação visual e navegação real pela interface.
-
-- QA Agent documentado em `docs/qa-agent.md`.
-- Prompt base do agente registrado em `prompts/qa-agent-system-prompt.md`.
-- MCP configurado em `.vscode/mcp.json`.
-- No VS Code, o Playwright MCP pode ser iniciado pelo botão **Start** da configuração MCP.
-- Prompt reutilizável para o fluxo E2E registrado em `prompts/mcp-fluxo-e2e.md`.
-- Fluxo E2E validado com MCP: login comum → catálogo → `A Arte da Guerra` → cesta → checkout → `Reservas Confirmadas!`.
-- Evidência da execução registrada em `evidencias/aula-4-mcp.md`.
-- Screenshots armazenadas em `evidencias/screenshots/`.
+- GitHub: [@Guss182](https://github.com/Guss182)
+- LinkedIn: [gustavo-alves-moreno](https://www.linkedin.com/in/gustavo-alves-moreno/)
